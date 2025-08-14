@@ -13,3 +13,25 @@ var intToRoman = function (num) {
 };
 
 console.log(intToRoman(8)); // you can provide any decimal value to get the targeted number system value - here it is for Roman
+
+
+
+
+// This is another type of conversion - Roman to Decimal
+var romanToInt = function(s) {
+	const values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+	const symbols = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+	let r = null;
+	let indx = null;
+	for (let i = 0; i < s.length; i++) {
+		if (symbols.includes(s[i] + s[i+1])) {
+			indx = symbols.indexOf(s[i] + s[i+1])
+			i++;
+		}else indx = symbols.indexOf(s[i])
+		r += values[indx]
+	}
+	return r;
+};
+
+console.log(romanToInt('III'));
+
